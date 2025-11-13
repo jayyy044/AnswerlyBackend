@@ -3,7 +3,7 @@ from .resumeChunker import ResumeChunker
 from .linkedinChunker import LinkedinChunker
 import json
 from langchain_core.output_parsers import PydanticOutputParser
-from langchain.prompts import ChatPromptTemplate
+from langchain_core.prompts import ChatPromptTemplate
 from .outputSchemas import UnifiedSemanticChunks, DeduplicationResult
 import logging
 from collections import defaultdict
