@@ -1,31 +1,14 @@
-from dotenv import load_dotenv
-import os
-
-from google import genai
 from .textExtractor import TextExtractor
 from .resumeChunker import ResumeChunker
 from .linkedinChunker import LinkedinChunker
 import json
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
-from langchain_chroma import Chroma
-
-from langchain_core.documents import Document
-from typing import List, Dict, Any
-
 from langchain.output_parsers import PydanticOutputParser
 from langchain.prompts import ChatPromptTemplate
-from .outputSchemas import UnifiedSemanticChunks, OptimalQuery, DeduplicationResult
-from langchain_google_genai import ChatGoogleGenerativeAI
-from datetime import datetime
-
-
-import numpy as np
-from sklearn.metrics.pairwise import cosine_similarity
-import shutil
+from .outputSchemas import UnifiedSemanticChunks, DeduplicationResult
 import logging
 from collections import defaultdict
 
-load_dotenv()
+
 
 
 
