@@ -2,7 +2,7 @@ from .textExtractor import TextExtractor
 from .resumeChunker import ResumeChunker
 from .linkedinChunker import LinkedinChunker
 import json
-from langchain.output_parsers import PydanticOutputParser
+from langchain_core.output_parsers import PydanticOutputParser
 from langchain.prompts import ChatPromptTemplate
 from .outputSchemas import UnifiedSemanticChunks, DeduplicationResult
 import logging
