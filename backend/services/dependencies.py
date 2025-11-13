@@ -26,7 +26,6 @@ _llm = None
 _embeddingconfig = None
 _supabaseClient = None
 _tavilyClient = None
-# _query_embedder_instance = None
 bucketName = 'answerlyData'
 
 def getSupabaseClient():
@@ -42,7 +41,6 @@ def getSupabaseClient():
         logger.info("Supabase client initialized")
     
     return _supabaseClient
-
 
 async def uploadResume(client, resume, filePath):
     try:
