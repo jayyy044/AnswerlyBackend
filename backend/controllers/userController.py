@@ -6,7 +6,6 @@ from fastapi.responses import JSONResponse
 import requests.exceptions
 from services.dependencies import getLLM, getSupabaseClient, uploadResume, uploadText, uploadJson, getEmbeddingConfig, getResume, getLinkedInText, deleteFile, deleteResume, downloadJson
 from services.userDataProcessor import ProcessUserData
-import json
 from dotenv import load_dotenv
 
 load_dotenv()

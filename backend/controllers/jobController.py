@@ -1,11 +1,9 @@
 from services.dependencies import getLLM, getSupabaseClient, getEmbeddingConfig, getTavilyClient, queryEmbedder
 from fastapi.responses import JSONResponse
 import requests.exceptions
-import os
 import logging
 from services.outputSchemas import JobApplicationState, CompanyResearchDecision, SearchQuery, OptimalQuery, ResponseOutput
-from langchain.prompts import ChatPromptTemplate
-import json
+from langchain_core.prompts import ChatPromptTemplate
 from dotenv import load_dotenv
 
 load_dotenv()
