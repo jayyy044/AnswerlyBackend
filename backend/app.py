@@ -5,7 +5,7 @@ from routes.userrouter import userRoutes
 from routes.jobrouter import jobRoutes
 from routes.userVerify import verifyUser
 # Import your dependency getters
-from dependencies import getLLM, getEmbeddingConfig, getSupabaseClient, getTavilyClient
+from services.dependencies import getLLM, getEmbeddingConfig, getSupabaseClient, getTavilyClient
 
 
 @asynccontextmanager
