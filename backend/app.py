@@ -5,7 +5,7 @@ from routes.userrouter import userRoutes
 from routes.jobrouter import jobRoutes
 from routes.userVerify import verifyUser
 # Import your dependency getters
-from services.dependencies import getLLM, getEmbeddingConfig, getSupabaseClient, getTavilyClient
+from services.dependencies import getEmbeddingConfig, getSupabaseClient
 
 
 @asynccontextmanager
@@ -14,10 +14,8 @@ async def lifespan(app: FastAPI):
     
     # Initialize all your global instances on startup
     try:
-        getLLM()  # Initialize LLM
         getEmbeddingConfig()  # Initialize Voyage embeddings
         getSupabaseClient()  # Initialize Supabase
-        getTavilyClient()  # Initialize Tavily
         print("✅ All services initialized successfully")
     except Exception as e:
         print(f"❌ Error initializing services: {e}")
