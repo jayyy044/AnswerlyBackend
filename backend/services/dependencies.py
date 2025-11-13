@@ -7,6 +7,7 @@ import json
 from voyageai import Client as VoyageClient
 from langchain_tavily import TavilySearch
 import base64
+from services.encryption import decryptKey
 
 load_dotenv()
 
@@ -135,13 +136,17 @@ async def downloadJson(client, filePath: str):
         logger.error(f"Error downloading {filePath}: {str(e)}")
         raise
 
-def getLLM():
+def getLLM(email):
     """Returns a shared LLM instance"""
     global _llm
     if _llm is None:
-        apiKey = os.getenv("GEMINI_KEY")
-        if not apiKey:
-            raise ValueError("Missing GEMINI_KEY in .env file")
+        client = getSupabaseClient()
+        result = client.table("user_api_keys").select("gemini_key").eq("user_email", email).single().execute()
+    
+        if not result.data or not result.data.get("gemini_key"):
+            raise ValueError(f"No Gemini API key found for user {email}")
+    
+        apiKey = decryptKey(result.data["gemini_key"])
         _llm = ChatGoogleGenerativeAI(
             model="gemini-2.5-flash-lite",
             google_api_key=apiKey,
@@ -161,12 +166,14 @@ def getEmbeddingConfig():
         logger.info("Embedding config initialized")
     return _embeddingconfig
 
-def getTavilyClient():
+def getTavilyClient(email):
     global _tavilyClient
     if _tavilyClient is None:
-        apiKey = os.getenv("TAVILY_KEY")
-        if not apiKey:
-            raise ValueError("Missing TAVILY_KEY in .env file") 
+        client = getSupabaseClient()
+        result = client.table("user_api_keys").select("tavily_key").eq("user_email", email).single().execute()
+        if not result.data or not result.data.get("tavily_key"):
+            raise ValueError(f"No Tavily API key found for user {email}")
+        apiKey = decryptKey(result.data["tavily_key"])
         _tavilyClient = TavilySearch(
             tavily_api_key=apiKey,
             max_results=10,

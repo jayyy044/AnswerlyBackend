@@ -484,8 +484,8 @@ async def generateAnswer(data):
         )
 
     try:
-        llm = getLLM()
-        tavily = getTavilyClient()
+        llm = getLLM(state["email"])
+        tavily = getTavilyClient(state["email"])
         supabase = getSupabaseClient()
         embeddingConfig = getEmbeddingConfig()
         # Step 1: Determine if company research is needed

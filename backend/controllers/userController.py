@@ -5,6 +5,7 @@ from langchain_tavily import TavilySearch
 from fastapi.responses import JSONResponse
 import requests.exceptions
 from services.dependencies import getLLM, getSupabaseClient, uploadResume, uploadText, uploadJson, getEmbeddingConfig, getResume, getLinkedInText, deleteFile, deleteResume, downloadJson
+from services.encryption import encryptKey
 from services.userDataProcessor import ProcessUserData
 from dotenv import load_dotenv
 
@@ -56,46 +57,37 @@ async def initializeAPIkeys(data):
             status_code=400, 
             content={"error": "Invalid Tavily API key"}
         )
+    client = getSupabaseClient()
+    email = data.get("email")
+    if not email:
+        return JSONResponse(
+            status_code=400,
+            content={"error": "Missing email"}
+        )
     
-    # Both keys are valid, save them
-    env_path = os.path.join(os.getcwd(), ".env")
     
-    existing_content = ""
-    if os.path.exists(env_path):
-        with open(env_path, "r") as f:
-            existing_content = f.read()
+    try:
+        data = {
+            "user_email": email,
+            "gemini_key": encryptKey(gemini_key),
+            "tavily_key": encryptKey(tavily_key),
+        }
+        
+        # Upsert (insert or update if exists)
+        result = client.table("user_api_keys").upsert(data, on_conflict="user_email").execute()
+        
+        return JSONResponse(
+            status_code=200,
+            content={"message": "API keys validated and saved successfully"}
+        )
+    except Exception as e:
+        print(f"Error saving keys to database: {e}")
+        return JSONResponse(
+            status_code=500,
+            content={"error": "Failed to save API keys"}
+        )
     
-    lines = existing_content.split("\n") if existing_content else []
-    updated_lines = []
-    gemini_found = False
-    tavily_found = False
-    
-    for line in lines:
-        if line.startswith("GEMINI_KEY="):
-            updated_lines.append(f"GEMINI_KEY={gemini_key}")
-            gemini_found = True
-        elif line.startswith("TAVILY_KEY="):
-            updated_lines.append(f"TAVILY_KEY={tavily_key}")
-            tavily_found = True
-        else:
-            updated_lines.append(line)
-    
-    if not gemini_found:
-        updated_lines.append(f"GEMINI_KEY={gemini_key}")
-    if not tavily_found:
-        updated_lines.append(f"TAVILY_KEY={tavily_key}")
-    
-    with open(env_path, "w") as f:
-        f.write("\n".join(updated_lines))
-    
-    # Reload environment variables
-    
-    load_dotenv(override=True)
-    
-    return JSONResponse(
-        status_code=200,
-        content={"message": "API keys validated and saved successfully"}
-    )
+
 
 async def processUserData(linkedinText, resume, email):
     if not linkedinText or not linkedinText.strip() or not resume or not email:
@@ -113,7 +105,7 @@ async def processUserData(linkedinText, resume, email):
     
     
     try:
-        llm = getLLM()
+        llm = getLLM(email)
         supabaseClient = getSupabaseClient()
         embeddingConfig = getEmbeddingConfig()
 
@@ -267,7 +259,7 @@ async def updateUserProfile(email, updateLinkedin, updateResume, linkedinText, r
         )
     try:
         supabaseClient = getSupabaseClient()
-        llm = getLLM()
+        llm = getLLM(email)
         embeddingConfig = getEmbeddingConfig()
         userDataProcessor = ProcessUserData(llm, embeddingConfig)
 

@@ -10,6 +10,8 @@ userRoutes = APIRouter()
 class APIKeysRequest(BaseModel):
     geminiKey: str
     tavilyKey: str
+    email: str
+
 
 @userRoutes.post("/apikeys")
 async def setApiKey(data: APIKeysRequest):
