@@ -1,0 +1,86 @@
+.keyFormCont{
+    height: 98vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+}
+
+.keyform{
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.keyform h1{
+    text-align: center;
+    letter-spacing: -2.5px;
+    font-weight: 200;
+    margin: 0;
+    font-size: 3rem;
+}
+
+.keyform h1:nth-of-type(2){
+    color: var(--accentColor);
+    font-style: italic;
+    font-size: 4.5rem;
+}
+
+.keyform a{
+    margin-block: 25px;
+    text-decoration: solid;
+    cursor: pointer;
+    color: white;
+}
+
+
+.keyform input{
+    margin-top: 15px;
+    background-color: transparent;
+    font-size: 1.5rem;
+    border-radius: 15px;
+    border: 0.5px solid rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    font-family: var(--font-mono);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.keyformbtn{
+    clip-path: polygon(18px 0%, 100% 0%, calc(100% - 18px) 100%, 0% 100%);
+    padding: 10px;
+    min-width: 200px;
+    padding-inline: 20px;
+    margin-top: 25px;
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    font-weight: 300 !important;
+    cursor: pointer;
+    background: rgb(194, 146, 69);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px); 
+    border: 1px solid rgba(255, 190, 88, 0.5); 
+    transition: all 0.3s ease;
+}
+
+.keyformbtn:hover{
+    background: rgb(211, 160, 76);
+}
+
+.keyform input:-webkit-autofill,
+.keyform input:-webkit-autofill:hover,
+.keyform input:-webkit-autofill:focus,
+.keyform input:-webkit-autofill:active {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: white; /* Text color */
+    transition: background-color 5000s ease-in-out 0s;
+    box-shadow: inset 0 0 20px 20px transparent; /* Makes background transparent */
+}
+
+.keyform input:focus {
+  border-color: var(--accentColor);
+  outline: none; /* optional – removes the default blue browser outline */
+}

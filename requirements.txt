@@ -1,0 +1,1 @@
+pip install fastapi uvicorn langchain-google-genai langchain langchain-community langchain-tavily supabase voyageai google-generativeai 

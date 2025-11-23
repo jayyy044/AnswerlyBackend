@@ -1,0 +1,142 @@
+.signupPageCont{
+    height: 98vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signupForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    padding: 20px;
+    /* line-height: 60px; */
+}
+
+
+.signupForm h1{
+    font-size: 6rem;
+    letter-spacing: -7px;
+    margin: 0;
+    font-weight: 200;
+}
+
+.signupForm h1:nth-of-type(2){
+    color: var(--accentColor);
+    font-style: italic;
+    margin-top: -30px;
+}
+
+.signupForm p{
+    color: var(--subcolor);
+    font-size: 1.5rem;
+    letter-spacing: -2px;
+}
+
+.signupForm a{
+    text-decoration: none;
+    color: var(--accentColor);
+}
+
+.signupForm a:hover{
+    text-decoration: underline;
+}
+
+.formInputsSU{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.signupForm input{
+    background-color: transparent;
+    font-size: 2.5rem;
+    border-radius: 15px;
+    border: 0.5px solid rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    font-family: var(--font-mono);
+    /* width: 100%; */
+    box-sizing: border-box;
+    max-width: 95%;
+}
+
+.signupForm input:-webkit-autofill,
+.signupForm input:-webkit-autofill:hover,
+.signupForm input:-webkit-autofill:focus,
+.signupForm input:-webkit-autofill:active {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: white; /* Text color */
+    transition: background-color 5000s ease-in-out 0s;
+    box-shadow: inset 0 0 20px 20px transparent; /* Makes background transparent */
+}
+
+.signupForm input:focus {
+  border-color: var(--accentColor);
+  outline: none; /* optional – removes the default blue browser outline */
+}
+
+
+.signupbtn{
+    clip-path: polygon(18px 0%, 100% 0%, calc(100% - 18px) 100%, 0% 100%);
+    width: 50%;
+    min-width: 200px;
+    padding: 10px;
+    padding-inline: 20px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-family: var(--font-mono);
+    font-size: 2rem;
+    font-weight: 300 !important;
+    cursor: pointer;
+    background: rgb(194, 146, 69);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px); 
+    border: 1px solid rgba(255, 190, 88, 0.5); 
+    transition: all 0.3s ease;
+}
+
+.signupbtn:hover{
+    background: rgb(211, 160, 76);
+}
+
+
+
+/* Add message styles */
+.message {
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin: 15px 0;
+    font-size: 1.2rem;
+    text-align: center;
+    font-family: var(--font-mono);
+    /* max-width: 415px;  */
+    max-width: 22vw;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.message.error {
+    background-color: rgba(255, 68, 68, 0.1);
+    border: 1px solid #ff4444;
+    color: #ff4444;
+}
+
+.message.success {
+    background-color: rgba(76, 175, 80, 0.1);
+    border: 1px solid #4caf50;
+    color: #4caf50;
+}
+
+
+.loader{
+    /* border: 0.5px solid red; */
+    margin: auto;
+}

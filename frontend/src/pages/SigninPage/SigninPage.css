@@ -1,0 +1,111 @@
+.signinPageCont{
+    height: 98vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signinForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    padding: 20px;
+}
+
+.signinForm h1{
+    font-size: 6rem;
+    letter-spacing: -7px;
+    margin: 0;
+    font-weight: 200;
+}
+
+.signinForm h1:nth-of-type(2){
+    color: var(--accentColor);
+    font-style: italic;
+    margin-top: -30px;
+}
+
+.signinForm p{
+    color: var(--subcolor);
+    font-size: 1.5rem;
+    letter-spacing: -2px;
+}
+
+.signinForm a{
+    text-decoration: none;
+    color: var(--accentColor);
+}
+
+.signinForm a:hover{
+    text-decoration: underline;
+}
+
+.formInputsSI{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+.signinForm input{
+    background-color: transparent;
+    font-size: 2.5rem;
+    border-radius: 15px;
+    border: 0.5px solid rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    font-family: var(--font-mono);
+}
+
+.signinForm input:-webkit-autofill,
+.signinForm input:-webkit-autofill:hover,
+.signinForm input:-webkit-autofill:focus,
+.signinForm input:-webkit-autofill:active {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: white; /* Text color */
+    transition: background-color 5000s ease-in-out 0s;
+    box-shadow: inset 0 0 20px 20px transparent; /* Makes background transparent */
+}
+
+.signinForm input:focus {
+  border-color: var(--accentColor);
+  outline: none; /* optional – removes the default blue browser outline */
+}
+
+.signinbtn{
+    clip-path: polygon(18px 0%, 100% 0%, calc(100% - 18px) 100%, 0% 100%);
+    padding: 10px;
+    padding-inline: 20px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-family: var(--font-mono);
+    font-size: 2rem;
+    font-weight: 300 !important;
+    cursor: pointer;
+    background: rgb(194, 146, 69);
+    backdrop-filter: blur(5px); 
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 190, 88, 0.5); 
+    transition: all 0.3s ease;
+}
+
+.signinbtn:hover{
+    background: rgb(211, 160, 76);
+}
+
+.errormsg{
+    background-color: rgba(255, 68, 68, 0.1);
+    border: 1px solid #ff4444;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin: 15px 0;
+    font-size: 1.2rem;
+    text-align: center;
+    font-family: var(--font-mono);
+    color: #ff4444 !important;
+}
+   

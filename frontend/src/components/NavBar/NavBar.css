@@ -1,0 +1,53 @@
+
+.navbarCont{
+    margin-block: 15px;
+    
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 30px;
+  height: 75px;
+  overflow: visible;
+
+}
+.navbar h1{
+    font-size: 2.3rem ;
+    font-family: var(--font-mono);
+    letter-spacing: -2.5px;
+    font-weight:100;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+.logo img{
+    height: 80px;
+    width: auto;
+    margin-right: 10px;
+}
+.logo h1{
+    font-size: 2.8rem ;
+
+}
+.logo span{
+    color: var(--accentColor);
+    font-weight: 900 !important;
+}
+
+.navlinks{
+    display: flex;
+    gap:90px;
+}
+
+.navlinks a{
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}   
+
+.navlinks a:hover{
+    color: var(--accentColor);
+}

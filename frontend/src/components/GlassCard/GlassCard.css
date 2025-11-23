@@ -1,0 +1,227 @@
+/* GlassCard.css */
+
+.glass-card-wrapper {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Glassmorphic backdrop with blur */
+.glass-card-backdrop {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(60px);
+  -webkit-backdrop-filter: blur(60px);
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 0;
+}
+
+/* Border glow effect */
+.glass-card-border-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 20px rgba(120, 60, 220, 0.25);
+  z-index: 0;
+  pointer-events: none;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Noise texture overlay for depth */
+.glass-card-noise {
+  position: absolute;
+  inset: 0;
+  background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+  opacity: 0.05;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Content container */
+.glass-card-content {
+  position: relative;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 1rem;
+  height: 100%;
+  width: 100%;
+  /* display: flex;  
+  flex-direction: row;
+  justify-content: space-between; */
+}
+
+/* Optional: Add hover effect */
+.glass-card-wrapper:hover .glass-card-border-glow {
+  box-shadow: 0 0 30px rgba(120, 60, 220, 0.4);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Control Panel Toggle Button */
+.glass-controls-toggle {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.glass-controls-toggle:hover {
+  background: rgba(0, 0, 0, 0.9);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+
+/* Control Panel */
+.glass-controls {
+  position: fixed;
+  bottom: 80px;
+  left: 20px;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.85);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  min-width: 280px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  animation: slideInLeft 0.3s ease;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.glass-controls h3 {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  border-bottom: 2px solid rgba(120, 60, 220, 0.5);
+  padding-bottom: 10px;
+}
+
+.glass-control-group {
+  margin-bottom: 20px;
+}
+
+.glass-control-group label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.glass-control-group .glass-value {
+  color: #a78bfa;
+  font-weight: 600;
+  font-family: 'Courier New', monospace;
+}
+
+.glass-control-group input[type="range"] {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.glass-control-group input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #a78bfa;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(167, 139, 250, 0.5);
+}
+
+.glass-control-group input[type="range"]::-webkit-slider-thumb:hover {
+  background: #c4b5fd;
+  transform: scale(1.2);
+  box-shadow: 0 3px 12px rgba(167, 139, 250, 0.7);
+}
+
+.glass-control-group input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #a78bfa;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(167, 139, 250, 0.5);
+}
+
+.glass-control-group input[type="range"]::-moz-range-thumb:hover {
+  background: #c4b5fd;
+  transform: scale(1.2);
+  box-shadow: 0 3px 12px rgba(167, 139, 250, 0.7);
+}
+
+/* Scrollbar styling for control panel */
+.glass-controls::-webkit-scrollbar {
+  width: 8px;
+}
+
+.glass-controls::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.glass-controls::-webkit-scrollbar-thumb {
+  background: rgba(167, 139, 250, 0.5);
+  border-radius: 4px;
+}
+
+.glass-controls::-webkit-scrollbar-thumb:hover {
+  background: rgba(167, 139, 250, 0.7);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .glass-controls {
+    left: 10px;
+    right: 10px;
+    bottom: 80px;
+    min-width: auto;
+    max-width: calc(100% - 20px);
+  }
+  
+  .glass-controls-toggle {
+    left: 10px;
+    bottom: 10px;
+  }
+}

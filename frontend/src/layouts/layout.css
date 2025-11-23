@@ -1,0 +1,11 @@
+.Toastify__toast{
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 15px !important;
+    border-color: rgba(255, 255, 255, 0.307) !important;
+    border: 0.5px solid;
+    font-family: var(--font-mono) !important;
+    letter-spacing: -1px;
+    backdrop-filter: blur(2.5px);
+    -webkit-backdrop-filter: blur(2.5px);    
+}
+

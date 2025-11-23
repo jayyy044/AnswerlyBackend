@@ -1,0 +1,262 @@
+/* .profilecont{
+  height : 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+} */
+
+
+.profileformcont{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+
+
+}
+
+.profileformcont h1{
+    font-size: 3rem;
+    letter-spacing: -2px;
+    margin: 0;
+}
+.profileformcont span{
+    color: var(--accentColor);
+}
+
+.pfSection{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.pfSection h2{
+    font-weight: 400;
+}
+
+.pf-ta{
+    resize: none;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: transparent;
+    color: white;
+    line-height: 1.5;
+    outline: none;
+    transition: all 0.8s;
+    box-sizing: border-box;
+    font-size: 1rem;
+    padding: 15px;
+    font-family: var(--font-mono);
+    width: 80%;
+
+}
+
+.pf-ta:focus {
+    border-color: var(--accentColor);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.pf-ta:hover {
+    border-color: var(--accentColor);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Custom Scrollbar for Webkit browsers (Chrome, Safari, Edge) */
+.pf-ta::-webkit-scrollbar {
+    width: 8px;
+    margin-right:5px;
+}
+
+.pf-ta::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.pf-ta::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.pf-ta::-webkit-scrollbar-thumb:hover {
+    background: var(--accentColor);
+}
+
+
+
+/* Upload Area */
+.pf-upload-area {
+    width: 80%;
+    margin-bottom: 1rem;
+    display: flex;
+    cursor: pointer;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    border: 2px dashed #374151;
+    background-color: transparent;
+    padding: 3rem 1.5rem;
+    transition: all 0.2s;
+    box-sizing: border-box;
+}
+
+.pf-upload-area p {
+    letter-spacing: -1px;
+}
+
+.pf-upload-area:hover {
+    border-color: var(--accentColor);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.pf-upload-area-dragging {
+    border-color: var(--accentColor);
+    background-color: rgba(249, 115, 22, 0.1);
+}
+
+.pf-upload-icon {
+    margin-bottom: 0.75rem;
+    height: 2rem;
+    width: 2rem;
+    color: #8a919f;
+}
+
+.pf-upload-text {
+    font-size: 0.875rem;
+    color: #b3bac5;
+    margin: 0;
+}
+
+.file-input-hidden {
+    display: none;
+}
+
+/* File Size Info */
+.pf-file-size-info {
+    width: 80%;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: 0.75rem;
+    color: #6b7280;
+    letter-spacing: -1px;
+    text-align: left;
+}
+
+/* File Card */
+.pf-file-card {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-radius: 0.5rem;
+    border: 0.5px solid var(--accentColor);
+    background-color: rgba(212, 160, 77, 0.3);
+    padding: 0.75rem;
+    backdrop-filter: blur(4px);
+    box-sizing: border-box;
+}
+
+.pf-file-icon-container {
+    display: flex;
+    height: 2.5rem;
+    width: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.375rem;
+    background-color: rgba(212, 160, 77, 0.506);
+    flex-shrink: 0;
+}
+
+.pf-file-icon {
+    height: 1.25rem;
+    width: 1.25rem;
+    color: white;
+}
+
+.pf-file-info {
+    flex: 1;
+    overflow: hidden;
+}
+
+.pf-file-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0 0 0.25rem 0;
+}
+
+.pf-file-size {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    margin: 0;
+}
+
+.delete-button {
+    display: flex;
+    height: 2rem;
+    width: 2rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.375rem;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    flex-shrink: 0;
+}
+
+.delete-button:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.delete-icon {
+    height: 1rem;
+    width: 1rem;
+}
+
+/* Screen reader only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.profileformsubmit {
+    clip-path: polygon(18px 0%, 100% 0%, calc(100% - 18px) 100%, 0% 100%);
+    padding: 10px;
+    padding-inline: 20px;
+    margin-top: 35px;
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    font-weight: 300 !important;
+    border: none;
+    cursor: pointer;
+    background: rgb(194, 146, 69);
+    border: 1px solid rgba(255, 190, 88, 0.5);
+    min-width: 200px;
+    transition: all 0.3s ease;
+}
+
+.profileformsubmit:hover {
+    background: rgb(229, 173, 83);
+}

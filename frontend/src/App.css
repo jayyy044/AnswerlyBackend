@@ -1,0 +1,10 @@
+@import url('https://fonts.vercel.com/css2?family=Geist+Sans:wght@100..900&family=Geist+Mono:wght@100..900&display=swap');
+
+:root {
+  --accentColor: #d4a14d;
+  --subcolor: rgb(170, 170, 170);
+  --font-geist-sans: "Geist Sans", system-ui, sans-serif;
+  --font-geist-mono: "Geist Mono", monospace;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
