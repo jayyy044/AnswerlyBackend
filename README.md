@@ -27,4 +27,7 @@ Job applications often require thoughtful responses to open-ended questions like
     <img src="https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens">
     <img src="https://img.shields.io/badge/-Vite-purple?logo=vite&logoColor=white&style=for-the-badge" alt="badge sample"/>
     <img src="https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue">
+    <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white">
+    <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white">
+    <img src="https://img.shields.io/badge/Tavily-FF6B6B?style=for-the-badge&logo=tavily&logoColor=white">
   </span>
